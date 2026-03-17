@@ -1,3 +1,3 @@
 side = float(input("Enter square sides : "))
 
-print("area =",side * side);
+print("area =",side * side)
