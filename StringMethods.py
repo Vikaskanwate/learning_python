@@ -1,4 +1,4 @@
-var = "hello World"
+var = "v\tikas@tcs.com"
 var1 = ",Good Morning"
 # print first character in capital
 print(var.capitalize())
@@ -35,6 +35,17 @@ print(var.center(30,"o"))
 # to encode converts into bite object
 print(var.encode())
 
-print(var.endswith("a"))
+# check if string ends perticular value
+print(var.endswith("@tcs.com"))
+# check if string starts with perticular value
+print(var.startswith("vikas"))
+# it will help to control the tab space
+print(var.expandtabs(1))
 
+# format is used to put varible in perticuler
+name = "prem"
+age = 24
+message = "my name is {} and I am {} years old.".format(name,age)
+print(message)
+#
 
