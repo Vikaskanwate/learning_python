@@ -47,5 +47,7 @@ name = "prem"
 age = 24
 message = "my name is {} and I am {} years old.".format(name,age)
 print(message)
-#
-
+# to print tuple or list in format of string
+word = ["hello","world","python"]
+result = " ".join(word)
+print(result)
