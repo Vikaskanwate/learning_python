@@ -1,4 +1,4 @@
-var = "hello world"
+var = "hello World"
 var1 = ",Good Morning"
 # print first character in capital
 print(var.capitalize())
@@ -22,11 +22,19 @@ print(" ".join([var,var1]))
 print(var1.find("e"))
 # count the occurence of substring
 print(var1.count("a"))
-# print(var.isalnum())
+print(var.isalnum())
 
-# print(dir(var))
+print(var.isspace())
+print(dir(var))
 # print(help(var.isspace()))
 # it will check if the string is empty or not
-print(var.isspace())
+# it also get the lowercase stricter 
+print(var.casefold())
+# if i want to put padding before or after string 
+print(var.center(30,"o"))
+# to encode converts into bite object
+print(var.encode())
+
+print(var.endswith("a"))
 
 
