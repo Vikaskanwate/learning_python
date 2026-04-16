@@ -1,4 +1,4 @@
-
+# used dictionary 
 freq={}
 
 for ch in "hello":
