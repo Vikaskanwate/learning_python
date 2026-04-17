@@ -1,3 +1,4 @@
+# reverse every word in string 
 st = "Hello World!"
 
 lst = st.split(" ")
