@@ -1,8 +1,8 @@
 # sum of digits of numbers
 n = int(input('Enter the number\n'))
-sum = 0
+s = 0
 while n > 0:
-    sum += n % 10
+    s += n % 10
     n //= 10
 
-print(sum)
+print(s)
