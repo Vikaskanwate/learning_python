@@ -12,7 +12,7 @@
 # Input: "" → Output: 0
 s = "pwwkew"
 def RSub(s):
-    seen = set()
+    seen = []
     left = 0
     maxLen = 0
     
@@ -21,7 +21,7 @@ def RSub(s):
             # remove from left side until duplicate is gone
             seen.remove(s[left])
             left += 1
-        seen.add(s[right])
+        seen.append(s[right])
         maxLen = max(maxLen, right - left + 1)
     
     return maxLen
