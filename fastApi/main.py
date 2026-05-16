@@ -2,12 +2,22 @@ from fastapi import FastAPI ,HTTPException
 from motor.motor_asyncio import AsyncIOMotorClient
 from bson import ObjectId
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 client = AsyncIOMotorClient('mongodb://localhost:27017/')
 db = client['taskdb']
 task_collection = db['task']
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or ["http://localhost:3000"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Task(BaseModel):
     title:str
@@ -53,9 +63,13 @@ async def update_task(task_id:str,updated_task:Task):
         return {"id":task_id,"updated":updated_task.model_dump()}
     raise HTTPException(status_code=404,detail="Task not found")
 
-@app.delete("/tasks/${task_id}")
+@app.delete("/tasks/{task_id}")
 async def delete_task(task_id:str):
-    result = await task_collection.delete_one({"_id":ObjectId(task_id)})
+    try:
+        oid = ObjectId(task_id)
+    except:
+        raise HTTPException(status_code=400,detail="Invalid ID format")
+    result = await task_collection.delete_one({"_id":oid})
     if result.deleted_count:
         return {"deleted":task_id}
     raise HTTPException(status_code=404,detail="Task not found")
