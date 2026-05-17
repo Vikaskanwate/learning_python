@@ -15,5 +15,9 @@ for ch in s:
     else:
         current += ch
         seen.add(ch)
-    
+        
+if current:
+    result.append(current)
+
+print(result)
 
