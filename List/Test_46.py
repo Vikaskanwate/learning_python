@@ -13,13 +13,16 @@ class ProductCodeValidator():
         self.str = str
     def is_valid(self):
         res = re.sub(r"[^a-zA-Z0-9]","",self.str)
-        cnt = 0
-        cnt1 = 0
-        for i in res:
-            if i.isdigit():
-                cnt+=1
-            else:
-                cnt1+=1
-        return cnt >= 2 and cnt1 >= 2
+        # digits = 0
+        # letters = 0
+        # for i in res:
+        #     if i.isdigit():
+        #         digits+=1
+        #     else:
+        #         letters+=1
+        digits = sum(ch.isdigit() for ch in res)
+        letters = sum(ch.isalpha() for ch in res)
+
+        return digits >= 2 and letters >= 2
 
 print(ProductCodeValidator("abcd").is_valid())
