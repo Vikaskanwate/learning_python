@@ -4,7 +4,7 @@ list2 = [3, 4, 4, 3]
 
 s = list(set(list1))
 print(s)
-
+# to check if the list  subset 
 if all(i in list1 for i in list2):
     print("list2 is subset of list1")
 else:
