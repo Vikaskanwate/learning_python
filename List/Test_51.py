@@ -1,8 +1,8 @@
 # count char frequency
-str = "banana"
+st = "banana"
 lst = []
-for i in str:
-    cnt = str.count(i)
+for i in st:
+    cnt = sts.count(i)
     if i not in lst:
         lst.append(i)
         print(f"{i} : {cnt}")
